@@ -1,0 +1,38 @@
+Desiging a blogs dataBase 
+
+-- User table 
+   -- user_id(primary Key)
+   -- user_name
+   -- email 
+   -- password 
+   -- profile_picture 
+
+   RELATIONSHIPS:
+   -- One to Many with Posts: A user can have multiple Posts 
+   -- One to Many with Comments: A user can have multiple Comments
+
+  
+-- Posts Table 
+   -- post_id(Primary key)
+   -- user_id(Foreign key)
+   -- title 
+   -- content 
+   -- created_at
+   -- updated_at
+   -- likes
+   
+   RELATIONSHIPS
+   -- Many to One with User: Many posts can belong to one user 
+   -- One to Many with Comments: A post can have multiple comments
+
+-- Comment Table 
+   -- comment_id(Primary Key)
+   -- post_id(Foreign Key)
+   -- post_id(Foreign Key)
+   -- content
+   -- created_at 
+   -- likes
+
+   RELATIONSHIPS 
+   -- Many to One with User: Many comments will be written by one user 
+   -- Many to One with Post: Many comments can belong to one post 

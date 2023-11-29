@@ -1,0 +1,58 @@
+1) SQL databases are primarily called Relational Databases (RDBMS); 
+whereas NoSQL databases are primarily called non-relational or distributed databases. 
+
+2) SQL requires you to use predefined schemas to determine the structure of your data before 
+you work with it. Also, all of your data must follow the same structure. This can require 
+significant up-front preparation which means that a change in the structure would be both 
+difficult and disruptive to your whole system.
+
+A NoSQL database has a dynamic schema for unstructured data. Data is stored in many ways
+
+3) In almost all situations SQL databases are vertically scalable. 
+    NoSQL databases are horizontally scalable.
+
+
+SQL: 
+CREATE TABLE Users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(50),
+    email VARCHAR(100)
+);
+
+CREATE TABLE UserAttributes (
+    attribute_id SERIAL PRIMARY KEY,
+    user_id INT,
+    attribute_name VARCHAR(50),
+    attribute_value VARCHAR(255),
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+
+-- Inserting data for a user with dynamic attributes
+INSERT INTO Users (username, email) VALUES ('JohnDoe', 'john@example.com');
+
+INSERT INTO UserAttributes (user_id, attribute_name, attribute_value) VALUES
+    (1, 'age', '30'),
+    (1, 'city', 'New York'),
+    (1, 'interests', 'Reading, Traveling');
+  
+NO-SQL -- MONGO DB:
+
+{
+  "_id": 1,
+  "username": "JohnDoe",
+  "email": "john@example.com",
+  "attributes": [
+    {"name": "age", "value": "30"},
+    {"name": "city", "value": "New York"},
+    {"name": "interests", "value": "Reading, Traveling"}
+  ]
+}
+
+
+Comparison:
+
+In the SQL example, we needed a separate table (UserAttributes) to handle 
+dynamic attributes, and the schema had to be defined in advance.
+
+In the NoSQL example, the document structure allows for flexibility,
+ and we can easily add or remove attributes without predefined schema constraints. This makes it scalable in terms of columns.

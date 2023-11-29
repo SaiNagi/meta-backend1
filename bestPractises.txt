@@ -1,0 +1,5 @@
+These are the best coding practises according to me:
+1) using the meaningful variables 
+2) Adding comments which will help the other devloper to understand the logic of the program
+3) Add function description how the return value will be calucalted i.e the logic of the function 
+4) Minimizing the amount of code  and duplicate code

@@ -1,0 +1,43 @@
+CORS, which stands for Cross-Origin Resource Sharing, is a security feature 
+implemented by web browsers. It is a set of rules that determine how a web page
+ in one domain can request and interact with resources from another domain. CORS 
+ is designed to prevent malicious websites from making unauthorized requests to
+  a different domain, which could lead to security vulnerabilities.
+
+When a web page makes a cross-origin HTTP request (i.e., a request to a different
+ domain, protocol, or port), the browser enforces the Same-Origin Policy, which 
+ typically restricts such requests for security reasons. CORS provides a way for
+  servers to declare which origins are permitted to access their resources.
+
+Here's a brief overview of how CORS works:
+
+1. Browser Sends Preflight Request (Optional):** For certain types of requests 
+(e.g., those with custom headers or non-standard methods), the browser may send 
+a preflight request using the HTTP OPTIONS method to check with the server if the a
+ctual request is allowed.
+
+2. Server Responds with CORS Headers:** The server responds to the preflight r
+equest or the actual request with appropriate CORS headers. These headers include
+ information such as `Access-Control-Allow-Origin` (specifying which origins are
+  allowed), `Access-Control-Allow-Methods` (listing the HTTP methods allowed), 
+  and others.
+
+3. Browser Enforces Access Control:** Based on the CORS headers received from the
+ server, the browser determines whether to allow or block the cross-origin request. 
+ If the server's CORS headers permit the request, the browser allows it. Otherwise,
+  it blocks the request for security reasons.
+
+To handle CORS-related issues in a web application, you can take the following steps:
+
+1. Configure Server for CORS: Ensure that your server is configured to include the
+ appropriate CORS headers in its responses. This involves setting headers such as 
+ Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers, and others.
+
+2. Handle Preflight Requests: If your web application makes requests that trigger preflight 
+checks (e.g., due to custom headers or non-standard methods), make sure your server handles 
+the preflight OPTIONS requests correctly.
+
+3. Use Credentials Wisely: If your requests involve credentials (such as cookies or HTTP authentication),
+ ensure that the server is configured to allow credentials across origins (Access-Control-Allow-Credentials: true).
+  Also, be cautious when sharing credentials across origins.
+
